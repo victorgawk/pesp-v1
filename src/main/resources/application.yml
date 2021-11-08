@@ -1,0 +1,28 @@
+auth0:
+  audience: ${AUTH0_AUDIENCE}
+  clientId: ${AUTH0_CLIENT_ID}
+  clientSecret: ${AUTH0_CLIENT_SECRET}
+  grantType: client_credentials
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_ISSUER_URI}
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+    show-sql: false
+logging:
+  file.name: application.log
+  pattern:
+    console: '%-5level [%d{yyyy-MM-dd HH:mm:ss}] [%logger{36}] %msg%n'
+    file: '%-5level [%d{yyyy-MM-dd HH:mm:ss}] [%logger{36}] %msg%n'
+  level:
+    org.springframework.web: INFO
+    app.controller: INFO
+    org.hibernate: INFO
